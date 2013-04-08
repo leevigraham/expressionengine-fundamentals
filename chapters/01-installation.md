@@ -1,11 +1,15 @@
 # Installation
 
-This section describes how to modify the default folder structure in order secure your installation and bootstrap configuration for multiple development environments.
+This section describes how to modify the default folder structure in order secure your installation and bootstrap configuration for multiple development environments before running the installation wizard.
 
-To start download the latest version of ExpressionEngine 2, unzip and then in terminal cd into the unzipped folder.
+To start 
+
+1. download the latest version of ExpressionEngine 2
+2. unzip 
+3. in terminal cd into the unzipped folder
 
 ```bash
-cd folder_name
+cd unzipped_folder_path
 ```
 
 ## Modify folder structure
