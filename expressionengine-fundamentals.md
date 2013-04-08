@@ -13,7 +13,7 @@ This book is targeted at novice to intermediate developers wishing to learn how 
 Acknowledgements
 ----------------
 
-This book is inspired by [Developing Backbone.js Applications](https://github.com/addyosmani/backbone-fundamentals)
+This book is inspired by [Developing Backbone.js Applications](https://github.com/addyosmani/backbone-fundamentals). The Panoc build code was taken directly from the Github Repo.
 
 Credits
 -------
