@@ -75,7 +75,7 @@ NSM Config Bootstrap is a single file that allows you to:
 * define global variables
 * define file paths
 
-Install `config_bootstrap.php` by (following the documentation)[http://ee-garage.com/nsm-config-bootstrap#toc-installation].
+Install `config_bootstrap.php` by [following the documentation](http://ee-garage.com/nsm-config-bootstrap#toc-installation).
 
 The default `config_bootstrap.php` assumes the folder structure modified by the script above.
 
