@@ -52,6 +52,17 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><a href="#installation-wizard">Installation wizard</a></li>
 <li><a href="#next">Next</a></li>
 </ul></li>
+<li><a href="#the-expressionengine-control-panel">The ExpressionEngine Control Panel</a><ul>
+<li><a href="#customising-the-cp">Customising the CP</a><ul>
+<li><a href="#override.css---aud-9.95">Override.css - $AUD 9.95</a></li>
+<li><a href="#module-nav---free">Module Nav - Free</a></li>
+<li><a href="#field-editor---us-9.99">Field Editor - $US 9.99</a></li>
+<li><a href="#developer---free">Developer - Free</a></li>
+<li><a href="#environment---free">Environment - Free</a></li>
+<li><a href="#zoo-flexible-admin---us-22.00">Zoo Flexible Admin - $US 22.00</a></li>
+<li><a href="#more-addons">More Addons</a></li>
+</ul></li>
+</ul></li>
 </ul>
 </nav>
 <h1 id="prelude"><a href="#prelude">Prelude</a></h1>
@@ -141,7 +152,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <h2 id="system-path-configuration"><a href="#system-path-configuration">System path configuration</a></h2>
 <p>We’ve moved our folders around which means we need to tell EE where to look for it’s system folders.</p>
 <ol type="1">
-<li>Open <code>/public_html/admin.php</code></li>
+<li>Open <code>/public_html/admin.php</code> &amp; <code>/public_html/index.php</code></li>
 <li>Change <code>$system_path = './system';</code> to <code>$system_path = '../system';</code> (Extra dot)</li>
 </ol>
 <h2 id="configuring-your-webserver"><a href="#configuring-your-webserver">Configuring your webserver</a></h2>
@@ -155,7 +166,57 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <p>Don’t forget to remove <code>/system/installer</code> after the install runs.</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> rm -R system/installer</code></pre>
 <h2 id="next"><a href="#next">Next</a></h2>
-<p>Let’s create our first channel.</p>
+<p>Let’s get to know the ExpressionEngine CP (Control Panel).</p>
+<h1 id="the-expressionengine-control-panel"><a href="#the-expressionengine-control-panel">The ExpressionEngine Control Panel</a></h1>
+<p>Now that ExpressionEngine has been installed it’s time to login. Here’s the CP url: <code>http://local.ee-book.com/admin.php</code></p>
+<h2 id="customising-the-cp"><a href="#customising-the-cp">Customising the CP</a></h2>
+<p>The default CP is fine but thanks to the work of many third_party addon developers we can make it even better. Lets start with some simple tweaks that I consider <em>must have</em>.</p>
+<h3 id="override.css---aud-9.95"><a href="#override.css---aud-9.95">Override.css - $AUD 9.95</a></h3>
+<p>By Leevi Graham (Me): http://ee-garage.com/override-css</p>
+<p>From the author:</p>
+<blockquote>
+<p>The default design of the default CP isn’t to everyones tastes. Override.css is a stylesheet that takes the default CP theme and adds consistency, improved contrast and greater user experience for content managers and ExpressionEngine implementors. Choose one of 10 different colourways or easily generate your own.</p>
+</blockquote>
+<p>Disclaimer: I wrote this addon.</p>
+<h3 id="module-nav---free"><a href="#module-nav---free">Module Nav - Free</a></h3>
+<p>By Brandon Kelly: http://devot-ee.com/add-ons/module-nav</p>
+<p>From the author:</p>
+<blockquote>
+<p>Module Nav is an EE2 accessory that makes two changes to EE2’s top navigation: * Replaces the “Add-Ons” menu with a new “Modules” menu, populated with links to your modules’ CP backends * Moves the old “Add-Ons” menu into the “Admin” menu, under “Add-on Administration”</p>
+</blockquote>
+<p>Note: If you get and error after installing checkout my <a href="https://github.com/brandonkelly/module_nav/pull/3/files">pull request</a></p>
+<h3 id="field-editor---us-9.99"><a href="#field-editor---us-9.99">Field Editor - $US 9.99</a></h3>
+<p>By Chris Newton: http://devot-ee.com/add-ons/field-editor</p>
+<p>This addon is amazeballs and I can’t live without it. It makes managing channel fields really easy and effecient.</p>
+<p>From the author:</p>
+<blockquote>
+<p>Breathe new life into EE’s channel fields editor! Adding &amp; editing fields won’t be a chore anymore. Field Editor adds powerful features to EE’s standard field editor interface. Rather than laboriously clicking and editing each and every channel field or clicking and clicking and clicking to add new fields to a channel, you can now add, delete, re-order and manipulate your custom fields all in one simple interface.</p>
+</blockquote>
+<h3 id="developer---free"><a href="#developer---free">Developer - Free</a></h3>
+<p>By Ben Crocker: http://www.putyourlightson.net/developer</p>
+<p>From the author:</p>
+<blockquote>
+<p>Developer is an accessory that allows EE site developers to quickly access the most essential sections of the control panel during site setup.</p>
+</blockquote>
+<h3 id="environment---free"><a href="#environment---free">Environment - Free</a></h3>
+<p>By Trevor Davis: http://devot-ee.com/add-ons/environment</p>
+<p>From the author:</p>
+<blockquote>
+<p>Display which environment you are on at all times in the CP so you don’t accidentally do something bad on the production environment.</p>
+</blockquote>
+<p>There’s nothing worse than for a split moment thinking you delete content on your production site. We’ve all done it. We’ll probably do it again. This addon will at least give you a heads up.</p>
+<h3 id="zoo-flexible-admin---us-22.00"><a href="#zoo-flexible-admin---us-22.00">Zoo Flexible Admin - $US 22.00</a></h3>
+<p>By ExpressionEngine Zoo - http://devot-ee.com/add-ons/zoo-flexible-admin</p>
+<p>From the author:</p>
+<blockquote>
+<p>Make it easier for you and your clients to use the EE control panel. Zoo Flexible Admin lets you fully customize the control panel menu per membergroup. Insert custom links, rename, re-order and remove menu items in order to create a more intuitive menu.</p>
+</blockquote>
+<h3 id="more-addons"><a href="#more-addons">More Addons</a></h3>
+<p>There’s plenty more third_party addons for improving your CP experience like:</p>
+<ul>
+<li><a href="http://devot-ee.com/add-ons/draggable">Draggable</a> - $US 5.00</li>
+<li><a href="http://devot-ee.com/add-ons/zenbu">Zenbu</a> - $US 60.00</li>
+</ul>
 @TODO: Stats
 </body>
 </html>

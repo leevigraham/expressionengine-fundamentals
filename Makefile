@@ -22,9 +22,9 @@ html: markdown
 
 epub: markdown
 	pandoc -s $(filename).md --normalize --smart -t epub -o $(filename).epub \
-		--epub-metadata $(include_dir)/metadata.xml \
-		--epub-stylesheet epub.css \
-		--epub-cover-image img/cover.jpg \
+		# --epub-metadata $(include_dir)/metadata.xml \
+		# --epub-stylesheet epub.css \
+		# --epub-cover-image img/cover.jpg \
 		--title-prefix $(title) \
 		--normalize \
 		--smart \

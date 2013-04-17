@@ -99,10 +99,11 @@ System path configuration
 
 We've moved our folders around which means we need to tell EE where to look for it's system folders.
 
-1. Open `/public_html/admin.php`
+1. Open `/public_html/admin.php` & `/public_html/index.php`
 2. Change `$system_path = './system';` to `$system_path = '../system';` (Extra dot)
 
-## Configuring your webserver
+Configuring your webserver
+--------------------------
 
 Create a new apache virtual host with the following details:
 
@@ -123,4 +124,4 @@ sudo rm -R system/installer
 Next
 ----
 
-Let's create our first channel.
+Let's get to know the ExpressionEngine CP (Control Panel).
