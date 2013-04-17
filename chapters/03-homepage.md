@@ -1,5 +1,5 @@
-Homepage
-========
+Creating a Homepage
+===================
 
 In this chapter we're going to:
 
@@ -9,8 +9,8 @@ In this chapter we're going to:
 * Add SEO meta to the homepage
 * Running content experiements on multiple homepages
 
-Creating a channel
-------------------
+Creating a homepage channel
+---------------------------
 
 For those of you who have experience with ExpressionEngine you might be thinking "Homepage channel" WTF is this guy on. Creating a homepage channel, and therefore multiple homepage channel entries has the following benefits:
 
@@ -30,8 +30,8 @@ Then edit the channel preferences and set the following attributes:
 * Allow comments in this channel?: `no`
 * Display Rich Formatting Buttons: `no`
 
-Creating custom fields
-----------------------
+Creating homepage custom fields
+-------------------------------
 
 Creating the Homepage channel was straight forward now let's create the homeage custom field group and custom fields and assign them to the channel.
 
@@ -68,8 +68,8 @@ But what about [Publish Page Layouts](http://ellislab.com/expressionengine/user-
 
 So say it out loud "one custom field group per channel" - no exceptions.
 
-Creating templates
-------------------
+Creating homepage templates
+---------------------------
 
 Generally I follow "one template group per channel" but in this case we'll make an exception.
 
