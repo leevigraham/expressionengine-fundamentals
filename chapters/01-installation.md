@@ -113,7 +113,7 @@ Create a new apache virtual host with the following details:
 Installation wizard
 -------------------
 
-To install EE visit `http://local.ee-book.com/admin.php` and follow the instructions.
+To install EE visit http://local.ee-book.com/admin.php and follow the instructions.
 
 Don't forget to remove `/system/installer` after the install runs.
 

@@ -17,8 +17,7 @@ html: markdown
 		--include-after-body $(include_dir)/stats.html \
 		--title-prefix $(title) \
 		--normalize \
-		--smart \
-		--toc
+		--smart
 
 epub: markdown
 	pandoc -s $(filename).md --normalize --smart -t epub -o $(filename).epub \

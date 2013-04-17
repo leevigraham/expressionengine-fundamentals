@@ -29,53 +29,55 @@ code > span.er { color: #ff0000; font-weight: bold; }
   </style>
   <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="https://raw.github.com/newism/jquery-nsmToc.js/master/jquery-nsmToc.js"></script>
+  <style type="text/css">
+  html, body {
+  	font-family:sans-serif;
+  	margin:0;
+  	padding:0;
+  }
+  body {padding:40px; padding-right:336px;}
+  .toc-prelude{color:#999; font-size:10px;}
+  .tags, #toc .tags a{color:#f00}
+  .toc-top{font-size:10px; margin-left:5px;}
+  #toc{background:#333; font-size:11px; padding:18px 18px 18px 0; position:fixed; top:0; right:0; width:300px;}
+  #toc ul, #toc li{line-height:1.3em; margin:0; padding:0; list-style-type:none}
+  #toc li{margin-left:18px;}
+  #toc a{color:#fff; text-decoration:none;}
+  #toc a span{color:#999;}
+  .tags, #toc .tags a{color:#f00}
+  </style>
+  <script type="text/javascript">
+  jQuery(document).ready(function($) {
+    $("body").nsmToc({
+  		generate_toc:		true,
+  		header_selector:	":header:visible", 
+  		toc_el:				"#toc",
+  		toc_title:			false,
+  		start_depth:		1,
+  		end_depth: 			3,
+  		append_top_links:   false
+  	});
+  });
+  </script>
 </head>
 <body>
-<h1>ExpressionEngine Fundamentals</h1>
+<h1 class="toc-ignore">ExpressionEngine Fundamentals</h1>
 <p>By <a href="http://leevigraham.com">Leevi Graham</a></p>
+<div id="toc"></div>
 
-<nav id="TOC">
-<ul>
-<li><a href="#prelude">Prelude</a><ul>
-<li><a href="#target-audience">Target Audience</a></li>
-<li><a href="#acknowledgements">Acknowledgements</a></li>
-<li><a href="#credits">Credits</a></li>
-<li><a href="#reading">Reading</a></li>
-</ul></li>
-<li><a href="#installing-expressionengine">Installing ExpressionEngine</a><ul>
-<li><a href="#folder-structure">Folder structure</a></li>
-<li><a href="#folder-file-permissions">Folder / file permissions</a></li>
-<li><a href="#config_bootstrap.php">config_bootstrap.php</a></li>
-<li><a href="#database-configuration">Database Configuration</a></li>
-<li><a href="#system-path-configuration">System path configuration</a></li>
-<li><a href="#configuring-your-webserver">Configuring your webserver</a></li>
-<li><a href="#installation-wizard">Installation wizard</a></li>
-<li><a href="#next">Next</a></li>
-</ul></li>
-<li><a href="#the-expressionengine-control-panel">The ExpressionEngine Control Panel</a><ul>
-<li><a href="#customising-the-cp">Customising the CP</a><ul>
-<li><a href="#override.css---aud-9.95">Override.css - $AUD 9.95</a></li>
-<li><a href="#module-nav---free">Module Nav - Free</a></li>
-<li><a href="#field-editor---us-9.99">Field Editor - $US 9.99</a></li>
-<li><a href="#developer---free">Developer - Free</a></li>
-<li><a href="#environment---free">Environment - Free</a></li>
-<li><a href="#zoo-flexible-admin---us-22.00">Zoo Flexible Admin - $US 22.00</a></li>
-<li><a href="#more-addons">More Addons</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
-<h1 id="prelude"><a href="#prelude">Prelude</a></h1>
+<h1 id="prelude">Prelude</h1>
 <p>@TODO</p>
-<h2 id="target-audience"><a href="#target-audience">Target Audience</a></h2>
+<h2 id="target-audience">Target Audience</h2>
 <p>This book is targeted at novice to intermediate developers wishing to learn how to better structure their ExpressionEngine sites. An understanding of ExpressionEngine is required to get the most out of it, however we’ve tried to link to external resources where possible.</p>
-<h2 id="acknowledgements"><a href="#acknowledgements">Acknowledgements</a></h2>
+<h2 id="acknowledgements">Acknowledgements</h2>
 <p>This book is inspired by <a href="https://github.com/addyosmani/backbone-fundamentals">Developing Backbone.js Applications</a>. The Panoc build code was taken directly from the Github Repo.</p>
-<h2 id="credits"><a href="#credits">Credits</a></h2>
+<h2 id="credits">Credits</h2>
 <p>@TODO</p>
-<h2 id="reading"><a href="#reading">Reading</a></h2>
+<h2 id="reading">Reading</h2>
 <p>@TODO</p>
-<h1 id="installing-expressionengine"><a href="#installing-expressionengine">Installing ExpressionEngine</a></h1>
+<h1 id="installing-expressionengine">Installing ExpressionEngine</h1>
 <p>This section describes how to modify the default folder structure in order secure your installation and bootstrap configuration for multiple development environments before running the installation wizard.</p>
 <p>To start</p>
 <ol type="1">
@@ -84,7 +86,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li>in terminal cd into the unzipped folder</li>
 </ol>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> unzipped_folder_path</code></pre>
-<h2 id="folder-structure"><a href="#folder-structure">Folder structure</a></h2>
+<h2 id="folder-structure">Folder structure</h2>
 <p>Now we need to modify our folder structure before running the install wizard.</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Create a folder which will become our document root</span>
 <span class="kw">mkdir</span> public_html
@@ -123,7 +125,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 
 <span class="co"># Create a placeholder folder for the site templates</span>
 <span class="kw">mkdir</span> -p views/templates</code></pre>
-<h2 id="folder-file-permissions"><a href="#folder-file-permissions">Folder / file permissions</a></h2>
+<h2 id="folder-file-permissions">Folder / file permissions</h2>
 <p>Set the following files to 666:</p>
 <ul>
 <li><code>system/expressionengine/config/config.php</code></li>
@@ -136,7 +138,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><code>public_html/images/*</code></li>
 <li><code>public_html/uploads/*</code></li>
 </ul>
-<h2 id="config_bootstrap.php"><a href="#config_bootstrap.php">config_bootstrap.php</a></h2>
+<h2 id="config_bootstrap.php">config_bootstrap.php</h2>
 <p>NSM Config Bootstrap is a single file that allows you to:</p>
 <ul>
 <li>configure all aspects of your EE install including thrid party addons</li>
@@ -146,77 +148,77 @@ code > span.er { color: #ff0000; font-weight: bold; }
 </ul>
 <p>Install <code>config_bootstrap.php</code> by <a href="http://ee-garage.com/nsm-config-bootstrap#toc-installation">following the documentation</a>.</p>
 <p>The default <code>config_bootstrap.php</code> assumes the folder structure modified by the script above.</p>
-<h2 id="database-configuration"><a href="#database-configuration">Database Configuration</a></h2>
+<h2 id="database-configuration">Database Configuration</h2>
 <p>Before we run the installation wizard you’ll need to create a database and add the details to the <code>config_bootstrap.php</code> file.</p>
 <p>Given we’ve configured the domain name to be <code>http://local.ee-book.com</code> you’ll need to add your DB details <a href="https://gist.github.com/leevigraham/e0a7fb4e00bba0350705#file-config_bootstrap_v2-php-L120">to the <code>local</code> environment configuration</a>.</p>
-<h2 id="system-path-configuration"><a href="#system-path-configuration">System path configuration</a></h2>
+<h2 id="system-path-configuration">System path configuration</h2>
 <p>We’ve moved our folders around which means we need to tell EE where to look for it’s system folders.</p>
 <ol type="1">
 <li>Open <code>/public_html/admin.php</code> &amp; <code>/public_html/index.php</code></li>
 <li>Change <code>$system_path = './system';</code> to <code>$system_path = '../system';</code> (Extra dot)</li>
 </ol>
-<h2 id="configuring-your-webserver"><a href="#configuring-your-webserver">Configuring your webserver</a></h2>
+<h2 id="configuring-your-webserver">Configuring your webserver</h2>
 <p>Create a new apache virtual host with the following details:</p>
 <ul>
 <li>Domain Name: <code>http://local.ee-book.com</code></li>
 <li>Local Path: <code>path_to_your_folder/public_html</code></li>
 </ul>
-<h2 id="installation-wizard"><a href="#installation-wizard">Installation wizard</a></h2>
-<p>To install EE visit <code>http://local.ee-book.com/admin.php</code> and follow the instructions.</p>
+<h2 id="installation-wizard">Installation wizard</h2>
+<p>To install EE visit http://local.ee-book.com/admin.php and follow the instructions.</p>
 <p>Don’t forget to remove <code>/system/installer</code> after the install runs.</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">sudo</span> rm -R system/installer</code></pre>
-<h2 id="next"><a href="#next">Next</a></h2>
+<h2 id="next">Next</h2>
 <p>Let’s get to know the ExpressionEngine CP (Control Panel).</p>
-<h1 id="the-expressionengine-control-panel"><a href="#the-expressionengine-control-panel">The ExpressionEngine Control Panel</a></h1>
-<p>Now that ExpressionEngine has been installed it’s time to login. Here’s the CP url: <code>http://local.ee-book.com/admin.php</code></p>
-<h2 id="customising-the-cp"><a href="#customising-the-cp">Customising the CP</a></h2>
+<h1 id="the-expressionengine-cp-control-panel">The ExpressionEngine CP (Control Panel)</h1>
+<p>Now that ExpressionEngine has been installed it’s time to login. Here’s the CP url: http://local.ee-book.com/admin.php</p>
+<h2 id="customising-the-cp">Customising the CP</h2>
 <p>The default CP is fine but thanks to the work of many third_party addon developers we can make it even better. Lets start with some simple tweaks that I consider <em>must have</em>.</p>
-<h3 id="override.css---aud-9.95"><a href="#override.css---aud-9.95">Override.css - $AUD 9.95</a></h3>
-<p>By Leevi Graham (Me): http://ee-garage.com/override-css</p>
+<h3 id="override.css---aud-9.95"><a href="http://ee-garage.com/override-css">Override.css</a> - $AUD 9.95</h3>
+<p>By Leevi Graham (Me)</p>
 <p>From the author:</p>
 <blockquote>
 <p>The default design of the default CP isn’t to everyones tastes. Override.css is a stylesheet that takes the default CP theme and adds consistency, improved contrast and greater user experience for content managers and ExpressionEngine implementors. Choose one of 10 different colourways or easily generate your own.</p>
 </blockquote>
 <p>Disclaimer: I wrote this addon.</p>
-<h3 id="module-nav---free"><a href="#module-nav---free">Module Nav - Free</a></h3>
-<p>By Brandon Kelly: http://devot-ee.com/add-ons/module-nav</p>
+<h3 id="module-nav---free"><a href="http://devot-ee.com/add-ons/module-nav">Module Nav</a> - Free</h3>
+<p>By Brandon Kelly</p>
 <p>From the author:</p>
 <blockquote>
 <p>Module Nav is an EE2 accessory that makes two changes to EE2’s top navigation: * Replaces the “Add-Ons” menu with a new “Modules” menu, populated with links to your modules’ CP backends * Moves the old “Add-Ons” menu into the “Admin” menu, under “Add-on Administration”</p>
 </blockquote>
 <p>Note: If you get and error after installing checkout my <a href="https://github.com/brandonkelly/module_nav/pull/3/files">pull request</a></p>
-<h3 id="field-editor---us-9.99"><a href="#field-editor---us-9.99">Field Editor - $US 9.99</a></h3>
-<p>By Chris Newton: http://devot-ee.com/add-ons/field-editor</p>
+<h3 id="field-editor---us-9.99"><a href="http://devot-ee.com/add-ons/field-editor">Field Editor</a> - $US 9.99</h3>
+<p>By Chris Newton</p>
 <p>This addon is amazeballs and I can’t live without it. It makes managing channel fields really easy and effecient.</p>
 <p>From the author:</p>
 <blockquote>
 <p>Breathe new life into EE’s channel fields editor! Adding &amp; editing fields won’t be a chore anymore. Field Editor adds powerful features to EE’s standard field editor interface. Rather than laboriously clicking and editing each and every channel field or clicking and clicking and clicking to add new fields to a channel, you can now add, delete, re-order and manipulate your custom fields all in one simple interface.</p>
 </blockquote>
-<h3 id="developer---free"><a href="#developer---free">Developer - Free</a></h3>
-<p>By Ben Crocker: http://www.putyourlightson.net/developer</p>
+<h3 id="developer---free"><a href="http://www.putyourlightson.net/developer">Developer</a> - Free</h3>
+<p>By Ben Crocker</p>
 <p>From the author:</p>
 <blockquote>
 <p>Developer is an accessory that allows EE site developers to quickly access the most essential sections of the control panel during site setup.</p>
 </blockquote>
-<h3 id="environment---free"><a href="#environment---free">Environment - Free</a></h3>
-<p>By Trevor Davis: http://devot-ee.com/add-ons/environment</p>
+<h3 id="environment---free"><a href="http://devot-ee.com/add-ons/environment">Environment</a> - Free</h3>
+<p>By Trevor Davis</p>
 <p>From the author:</p>
 <blockquote>
 <p>Display which environment you are on at all times in the CP so you don’t accidentally do something bad on the production environment.</p>
 </blockquote>
 <p>There’s nothing worse than for a split moment thinking you delete content on your production site. We’ve all done it. We’ll probably do it again. This addon will at least give you a heads up.</p>
-<h3 id="zoo-flexible-admin---us-22.00"><a href="#zoo-flexible-admin---us-22.00">Zoo Flexible Admin - $US 22.00</a></h3>
-<p>By ExpressionEngine Zoo - http://devot-ee.com/add-ons/zoo-flexible-admin</p>
+<h3 id="zoo-flexible-admin---us-22.00"><a href="http://devot-ee.com/add-ons/zoo-flexible-admin">Zoo Flexible Admin</a> - $US 22.00</h3>
+<p>By ExpressionEngine Zoo</p>
 <p>From the author:</p>
 <blockquote>
 <p>Make it easier for you and your clients to use the EE control panel. Zoo Flexible Admin lets you fully customize the control panel menu per membergroup. Insert custom links, rename, re-order and remove menu items in order to create a more intuitive menu.</p>
 </blockquote>
-<h3 id="more-addons"><a href="#more-addons">More Addons</a></h3>
+<h3 id="more-addons">More Addons</h3>
 <p>There’s plenty more third_party addons for improving your CP experience like:</p>
 <ul>
 <li><a href="http://devot-ee.com/add-ons/draggable">Draggable</a> - $US 5.00</li>
 <li><a href="http://devot-ee.com/add-ons/zenbu">Zenbu</a> - $US 60.00</li>
 </ul>
-@TODO: Stats
+
 </body>
 </html>
