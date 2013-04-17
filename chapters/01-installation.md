@@ -55,7 +55,7 @@ mv system/expressionengine/third_party/ ./
 mkdir public_html/themes/site_themes/default
 
 # Create a placeholder folder for the site templates
-mkdir -p views/templates
+mkdir -p views/templates/default_site
 ```
 
 Folder / file permissions
@@ -124,4 +124,4 @@ sudo rm -R system/installer
 Next
 ----
 
-Let's get to know the ExpressionEngine CP (Control Panel).
+[Let's get to know the ExpressionEngine CP (Control Panel).](02-control-panel.md)
