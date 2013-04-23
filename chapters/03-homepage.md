@@ -140,14 +140,14 @@ The page should now display 'Homepage 2'.
 
 The first security measure we need to implement is to create a new status and assign it to the entry. We'll use a status other than 'open' so it's not rendered in the `{exp:channel:entries}` tag by default.
 
-The default ExpressionEngine install ships with a default status group called '[Statues](http://ellislab.com/expressionengine/user-guide/cp/admin/channels/statuses.html)'. Unfortunately the 'Statues' status group is not automatically assigned to channels.
+The default ExpressionEngine install ships with a default status group called '[Statuses](http://ellislab.com/expressionengine/user-guide/cp/admin/channels/statuses.html)'. Unfortunately the 'Statuses' status group is not automatically assigned to channels.
 
-1. Create a new 'pending' status in the 'Statues' status group. [[user guide](http://ellislab.com/expressionengine/user-guide/cp/admin/channels/statuses_edit.html)]
+1. Create a new 'pending' status in the 'Statuses' status group. [[user guide](http://ellislab.com/expressionengine/user-guide/cp/admin/channels/statuses_edit.html)]
 2. Assign the 'Statuses' status group to the Homepage channel [[user guide](http://ellislab.com/expressionengine/user-guide/cp/admin/channels/channel_groups.html#status-group)]
 
-_A note about statues:_
+_A note about statuses:_
 
-IMO channel statuses should be used for **publishing workflows only**. 'open', 'closed', 'pending' and 'review' are publishing workflow statueses while 'featured' is used for display and should be implemented using custom fields and the [`search:field_name=`](http://ellislab.com/expressionengine/user-guide/modules/channel/channel_entries.html#search-field-name) parameter. This approach allows and entry to be 'featured' and 'pending' at the same time.
+IMO channel statuses should be used for **publishing workflows only**. 'open', 'closed', 'pending' and 'review' are publishing workflow statuseses while 'featured' is used for display and should be implemented using custom fields and the [`search:field_name=`](http://ellislab.com/expressionengine/user-guide/modules/channel/channel_entries.html#search-field-name) parameter. This approach allows and entry to be 'featured' and 'pending' at the same time.
 
 ### Add a secure token custom field
 
@@ -216,4 +216,4 @@ Mo Variables will identify the `cf_homepage_token` query parameter, transform it
 Conclusion
 ----------
 
-If you made it through congratulations! We've covered quite a bit in this chapter including. Hopefully you'll have a good understanding of channels, custom fields, statues, templates, conditionals and query parameters.
+If you made it through congratulations! We've covered quite a bit in this chapter including. Hopefully you'll have a good understanding of channels, custom fields, statuses, templates, conditionals and query parameters.
