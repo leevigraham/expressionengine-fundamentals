@@ -49,6 +49,8 @@ Now add the following custom fields:
 
 Then assign the custom field group to the channel.
 
+![Homepage Custom Field Group](../img/homepage-custom-field-group.png)
+
 ### Custom field naming conventions 
 
 Why `cf_homepage_content`? Naming conventions are an important part of creating any system especially when there are multiple developers. 
