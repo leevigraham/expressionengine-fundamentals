@@ -203,7 +203,7 @@ Now we've updated the 'Homepage' channel and installed Mo Variables the final st
 {cf_homepage_content}
 {/exp:channel:entries}
 ```
-We added a conditional inside the openning `{exp:channel:entries}` tag. This approach is **fraught with danger** which requires a strong understanding of the ExpressionEngine template parese order and conditionals. Thankfully [@low](http://gotolow.com) has published [an excellent guide](http://loweblog.com/downloads/ee-parse-order.pdf) on the topic. Additionally enabling [template debugging](http://ellislab.com/expressionengine/user-guide/cp/admin/output_and_debugging_preferences.html#display-template-debugging) will help debug any issues.
+We added a conditional inside the openning `{exp:channel:entries}` tag. This approach is **fraught with danger** which requires a strong understanding of the ExpressionEngine template parse order and conditionals. Thankfully [@low](http://gotolow.com) has published [an excellent guide](http://loweblog.com/downloads/ee-parse-order.pdf) on the topic. Additionally enabling [template debugging](http://ellislab.com/expressionengine/user-guide/cp/admin/output_and_debugging_preferences.html#display-template-debugging) will help debug any issues.
 
 ### View the alternate homepage
 
