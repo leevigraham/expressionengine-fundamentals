@@ -8,6 +8,7 @@ In this chapter we're going to:
 * Create a homepage template
 * Add SEO meta to the homepage
 * Running content experiements on multiple homepages
+* Implement workflow approval processes
 
 Creating a homepage channel
 ---------------------------
@@ -68,16 +69,150 @@ But what about [Publish Page Layouts](http://ellislab.com/expressionengine/user-
 
 So say it out loud "one custom field group per channel" - no exceptions.
 
+Publish a new homepage
+----------------------
+
+Let's test out the new channel custom fields. Go [publish a new Homepage channel entry](http://ellislab.com/expressionengine/user-guide/cp/content/publish.html) and set the title to 'Homepage 1'.
+
 Creating homepage templates
 ---------------------------
 
-Generally I follow "one template group per channel" but in this case we'll make an exception.
+I generally follow "one template group per channel" naming the template group after the channel. Example: If there is a `blog` channel there will be a corresponding `blog` template group. 
+
+However in this case an exception is made. We'll create a `site` template group instead. Why `site`? Saying it out loud makes sense: `site/index`. We'll also eventually create a `site/four04`, `site/_header` and `site/_footer` template. Creating the template group automatically creates a new `index` template.
 
 Create a new template group with the following attributes:
 
 * Template Group Name: `site`
 * Make the index template in this group your site's home page?: `yes`
 
+Here's the template code:
 
+```html
+{exp:channel:entries
+    channel="homepage"
+    limit="1"
+    dynamic="no"
+}
 
+{if no_results} {redirect="404"}{/if}
 
+<h1>{title}</h1>
+{cf_homepage_content}
+{/exp:channel:entries}
+```
+
+Pretty straight forward but let's break it down.
+
+* `{exp:channel:entries` - Open the channel entries loop. [[user guide](http://ellislab.com/expressionengine/user-guide/modules/channel/channel_entries.html)]
+* `channel="homepage"` - We only want to load homepage channel. [[user guide](http://ellislab.com/expressionengine/user-guide/modules/channel/channel_entries.html#channel)]
+* `limit="1"` - We're going to publish multiple homepage entries but we only need to show one. [[user guide](http://ellislab.com/expressionengine/user-guide/modules/channel/channel_entries.html#limit)]
+* `dynamic="no"` - I always include this just incase other parameters are added to the URL. [[user guide](http://ellislab.com/expressionengine/user-guide/modules/channel/channel_entries.html#dynamic)]
+* `}` - Close the openning tag
+* `{if no_results} {redirect="404"}{/if}` - Another defensive move. We're assuming the URL is fine and theres an open entry if there's not we'll redirect to a 404 page
+* `<h1>{title}</h1>` - Standard entry title tag [[user guide](http://ellislab.com/expressionengine/user-guide/modules/channel/channel_entries.html#title)]
+* `{cf_homepage_content}` - Content custom field [[user guide](http://ellislab.com/expressionengine/user-guide/modules/channel/custom_fields.html)]
+* `{/exp:channel:entries}` - Close the channel entries loop.
+
+Preview the homepage
+--------------------
+
+Visit <http://local.ee-book.com>. You should see the entry title and content. If not something has gone wrong (probably my instructions).
+
+Viewing alternative homepages
+-----------------------------
+
+By default ExpressionEngine will show the latest open Homepage entry (the one you just published) but we need a way to force the `{exp:channel:entries}` tag to render an alternative homepage. We also have to make sure that a user could not stumble upon the alternate homepage accidentally exposing confidential data.
+
+### Create new 'Homepage' channel entry
+
+We'll need to test altenrate homepages we'll need a new 'Homepage' channel entry (duh).
+
+1. Create a new 'Homepage' channel entry
+2. Set the title to 'Homepage 2' so you can identiy the alternative.
+3. Save the entry
+4. Refresh <http://local.ee-book.com>
+
+The page should now display 'Homepage 2'.
+
+### Create a new status
+
+The first security measure we need to implement is to create a new status and assign it to the entry. We'll use a status other than 'open' so it's not rendered in the `{exp:channel:entries}` tag by default.
+
+The default ExpressionEngine install ships with a default status group called '[Statues](http://ellislab.com/expressionengine/user-guide/cp/admin/channels/statuses.html)'. Unfortunately the 'Statues' status group is not automatically.
+
+1. Create a new 'pending' status in the 'Statues' status group. [[user guide](http://ellislab.com/expressionengine/user-guide/cp/admin/channels/statuses_edit.html)]
+2. Assign the 'Statuses' status group to the Homepage channel [[user guide](http://ellislab.com/expressionengine/user-guide/cp/admin/channels/channel_groups.html#status-group)]
+
+_A note about statues:_
+
+IMO channel statuses should be used for **publishing workflows only**. 'open', 'closed', 'pending' and 'review' are publishing workflow statueses while 'featured' is used for display and should be implemented using custom fields and the [`search:field_name=`](http://ellislab.com/expressionengine/user-guide/modules/channel/channel_entries.html#search-field-name) parameter. This approach allows and entry to be 'featured' and 'pending' at the same time.
+
+### Add a secure token custom field
+
+We'll need a `cf_homepage_token` to identify the entry via a query string parameter. The same `cf_homepage_token` will be used to search for the entry in the `{exp:channel:entires}` tag.
+
+Create a new custom field in the 'Homepage' Custom field group with the following attributes:
+
+* Field Label: Token
+* Short Name: cf_homepage_token
+* Type: Text Input
+
+### Update 'Homepage 2'
+
+The 'Homepage' channel should now have a new custom field and status. Update the 'Homepage 2' channel entry:
+
+1. Set the status to 'pending'
+2. Add a token to the 'Token' field. The 'Token' should be a random string that's hard to guess or brute force. [Here's a couple](http://www.random.org/strings/?num=10&len=20&digits=on&upperalpha=on&loweralpha=on&unique=on&format=html&rnd=new) to get started.
+3. Refresh <http://local.ee-book.com>
+
+The page should now display 'Homepage 1' as 'Homepage 2' is now 'pending'.
+
+### Install Mo Variables
+
+In order to access get and post request variables we'll need to install Mo Variables.
+
+[Rob Sanchez](https://github.com/rsanchez) created this simple but powerful addon that allows us to output get, post and many other variables in your templates. These variables can also be used in template conditionals.
+
+1. [Download & install Mo Variables](http://devot-ee.com/add-ons/mo-variables).
+2. Browse to the Mo Variables extension settings page
+3. Add 'cf_homepage_token' to 'Set default values for {get:your_key} variables' which makes sure there's a default value.
+
+![Mo Variables Extension Settings](../img/mo-variables-extension-settings.png)
+
+### Update the `site/index` template
+
+Now we've updated the 'Homepage' channel and installed Mo Variables the final step is to update the `site/index` template.
+
+```html
+{exp:channel:entries
+    channel="homepage"
+    limit="1"
+    dynamic="no"
+
+    {if get:cf_homepage_token != ""}
+    status="open|pending"
+    search:cf_homepage_token="{embed:get:cf_homepage_token}"
+    {/if}
+}
+
+{if no_results} {redirect="404"}{/if}
+
+<h1>{title}</h1>
+{cf_homepage_content}
+{/exp:channel:entries}
+```
+We added a conditional inside the openning `{exp:channel:entries}` tag. This approach is **fraught with danger** which requires a strong understanding of the ExpressionEngine template parese order and conditionals. Thankfully [@low](http://gotolow.com) has published [an excellent guide](http://loweblog.com/downloads/ee-parse-order.pdf) on the topic. Additionally enabling [template debugging](http://ellislab.com/expressionengine/user-guide/cp/admin/output_and_debugging_preferences.html#display-template-debugging) will help debug any issues.
+
+### View the alternate homepage
+
+Finally everything is in place. To view the alternative homepage visit <http://local.ee-book.com?cf_homepage_token=[insert cf_homepage_token here]>.
+
+Mo Variables will identify the `cf_homepage_token` query parameter, transform it into the `{get:cf_homepage_token}` tag / conditional which we'll use to search for our alternate homepage.
+
+![Brilliant](../img/brilliant.png)
+
+Conclusion
+----------
+
+If you made it through congratulations! We've covered quite a bit in this chapter including. Hopefully you'll have a good understanding of channels, custom fields, statues, templates, conditionals and query parameters.
