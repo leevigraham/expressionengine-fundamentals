@@ -178,7 +178,7 @@ In order to access get and post request variables we'll need to install Mo Varia
 2. Browse to the Mo Variables extension settings page
 3. Add 'cf_homepage_token' to 'Set default values for {get:your_key} variables' which makes sure there's a default value.
 
-![Mo Variables Extension Settings](../img/mo-variables-extension-settings.png)
+![Mo Variables Extension Settings](../img/mo-variables-extensions-settings.png)
 
 ### Update the `site/index` template
 
@@ -210,7 +210,7 @@ Finally everything is in place. To view the alternative homepage visit <http://l
 
 Mo Variables will identify the `cf_homepage_token` query parameter, transform it into the `{get:cf_homepage_token}` tag / conditional which we'll use to search for our alternate homepage.
 
-![Brilliant](../img/brilliant.png)
+![Brilliant](../img/brilliant.jpg)
 
 Conclusion
 ----------
