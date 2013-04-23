@@ -94,6 +94,7 @@ Here's the template code:
 
 <h1>{title}</h1>
 {cf_homepage_content}
+
 {/exp:channel:entries}
 ```
 
@@ -139,7 +140,7 @@ The page should now display 'Homepage 2'.
 
 The first security measure we need to implement is to create a new status and assign it to the entry. We'll use a status other than 'open' so it's not rendered in the `{exp:channel:entries}` tag by default.
 
-The default ExpressionEngine install ships with a default status group called '[Statues](http://ellislab.com/expressionengine/user-guide/cp/admin/channels/statuses.html)'. Unfortunately the 'Statues' status group is not automatically.
+The default ExpressionEngine install ships with a default status group called '[Statues](http://ellislab.com/expressionengine/user-guide/cp/admin/channels/statuses.html)'. Unfortunately the 'Statues' status group is not automatically assigned to channels.
 
 1. Create a new 'pending' status in the 'Statues' status group. [[user guide](http://ellislab.com/expressionengine/user-guide/cp/admin/channels/statuses_edit.html)]
 2. Assign the 'Statuses' status group to the Homepage channel [[user guide](http://ellislab.com/expressionengine/user-guide/cp/admin/channels/channel_groups.html#status-group)]
