@@ -65,6 +65,16 @@ From the author:
 
 > Make it easier for you and your clients to use the EE control panel. Zoo Flexible Admin lets you fully customize the control panel menu per membergroup. Insert custom links, rename, re-order and remove menu items in order to create a more intuitive menu. 
 
+[EE Debug Toolbar](http://devot-ee.com/add-ons/ee-debug-toolbar)
+
+By Eric Lamb & Chris Imrie
+
+From the author:
+
+> Adds an unobtrusive interface for debugging output on an ExpressionEngine 2.0 site. Replaces default Profiler and Template Debugger provided with ExpressionEngine.
+
+Still a little buggy but it has great potential way better than my older profiler addon [NSM Web Profiler](https://github.com/newism/nsm.web_profiler.ee_addon)
+
 More Addons
 -----------
 
