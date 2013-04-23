@@ -161,6 +161,8 @@ Create a new custom field in the 'Homepage' Custom field group with the followin
 * Short Name: cf_homepage_token
 * Type: Text Input
 
+![Homepage Custom Field Group](../img/homepage-custom-field-group-w-token.png)
+
 ### Update 'Homepage 2'
 
 The 'Homepage' channel should now have a new custom field and status. Update the 'Homepage 2' channel entry:
