@@ -56,6 +56,9 @@ mkdir public_html/themes/site_themes/default
 
 # Create a placeholder folder for the site templates
 mkdir -p views/templates/default_site
+
+# Create page_cache
+mkdir -p system/expressionengine/cache/page_cache
 ```
 
 Folder / file permissions
