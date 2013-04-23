@@ -69,11 +69,6 @@ But what about [Publish Page Layouts](http://ellislab.com/expressionengine/user-
 
 So say it out loud "one custom field group per channel" - no exceptions.
 
-Publish a new homepage
-----------------------
-
-Let's test out the new channel custom fields. Go [publish a new Homepage channel entry](http://ellislab.com/expressionengine/user-guide/cp/content/publish.html) and set the title to 'Homepage 1'.
-
 Creating homepage templates
 ---------------------------
 
@@ -114,10 +109,15 @@ Pretty straight forward but let's break it down.
 * `{cf_homepage_content}` - Content custom field [[user guide](http://ellislab.com/expressionengine/user-guide/modules/channel/custom_fields.html)]
 * `{/exp:channel:entries}` - Close the channel entries loop.
 
-Preview the homepage
---------------------
+Create a new Homepage channel entry
+-----------------------------------
 
-Visit <http://local.ee-book.com>. You should see the entry title and content. If not something has gone wrong (probably my instructions).
+Let's test out the new channel custom fields and template.
+
+* [Publish a new Homepage channel entry](http://ellislab.com/expressionengine/user-guide/cp/content/publish.html) and set the title to 'Homepage 1'.
+* Visit <http://local.ee-book.com>. 
+
+You should see the entry title and content. If not something has gone wrong (probably my instructions).
 
 Viewing alternative homepages
 -----------------------------
