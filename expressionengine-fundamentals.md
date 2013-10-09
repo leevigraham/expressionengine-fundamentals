@@ -1,5 +1,4 @@
 
-
 Prelude
 =======
 
@@ -83,6 +82,11 @@ mkdir public_html/themes/site_themes/default
 
 # Create a placeholder folder for the site templates
 mkdir -p views/templates
+
+# Remove themes
+rm -r public_html/themes/site_themes/agile_records 
+rm -r public_html/themes/profile_themes/agile_records 
+rm -r public_html/themes/wiki_themes/azure
 ```
 
 Folder / file permissions
