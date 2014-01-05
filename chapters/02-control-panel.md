@@ -66,6 +66,7 @@ From the author:
 > Make it easier for you and your clients to use the EE control panel. Zoo Flexible Admin lets you fully customize the control panel menu per membergroup. Insert custom links, rename, re-order and remove menu items in order to create a more intuitive menu. 
 
 [EE Debug Toolbar](http://devot-ee.com/add-ons/ee-debug-toolbar)
+----------------------------------------------------------------
 
 By Eric Lamb & Chris Imrie
 
